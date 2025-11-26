@@ -1,0 +1,881 @@
+:root {
+    --td-green: #008a00;
+    --td-green-light: #e8f5e9;
+    --td-green-dark: #006000;
+    --td-lime: #a4c639;
+    --text-dark: #1a1a1a;
+    --text-gray: #888888;
+    --bg-color: #f8f9fa;
+    --white: #ffffff;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --radius-l: 24px;
+    --radius-m: 16px;
+    --radius-s: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #eef0f4; /* Showcase background */
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    overflow: hidden; /* prevent body scroll */
+}
+
+/* iPhone Mockup Frame */
+.iphone-mockup {
+    position: relative;
+    width: 390px; /* iPhone 13/14 width */
+    height: 844px;
+    background: #121212; /* Dark frame color */
+    border-radius: 50px;
+    box-shadow: 
+        0 0 0 2px #3a3a3a, /* Outer frame highlight */
+        0 0 0 6px #121212, /* Main frame */
+        0 0 0 7px #000, /* Inner black edge */
+        0 30px 80px -20px rgba(50, 50, 93, 0.5), 
+        0 18px 36px -18px rgba(0, 0, 0, 0.6); /* Drop shadow */
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.iphone-screen {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    border-radius: 40px; /* Screen border radius */
+    overflow: hidden;
+    position: relative;
+    mask-image: -webkit-radial-gradient(white, black); /* Fix border radius clipping in some browsers */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+/* Dynamic Island / Notch */
+.dynamic-island {
+    position: absolute;
+    top: 22px; /* Inside screen padding */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 36px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Hardware Buttons */
+.btn-side {
+    position: absolute;
+    background: #2a2a2a;
+    border-radius: 2px 0 0 2px;
+}
+
+.btn-side.right {
+    border-radius: 0 2px 2px 0;
+    left: auto;
+    right: -13px;
+}
+
+.btn-silent {
+    top: 110px;
+    left: -13px;
+    width: 4px;
+    height: 32px;
+}
+
+.btn-vol-up {
+    top: 160px;
+    left: -13px;
+    width: 4px;
+    height: 62px;
+}
+
+.btn-vol-down {
+    top: 235px;
+    left: -13px;
+    width: 4px;
+    height: 62px;
+}
+
+.btn-power {
+    top: 190px;
+    width: 4px;
+    height: 96px;
+}
+
+/* Home Indicator */
+.home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 5px;
+    background: rgba(0,0,0,0.3); /* Dark on light bg */
+    border-radius: 100px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.app-container {
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 100%; /* Fill screen */
+    max-width: none; /* Reset */
+    min-height: auto; /* Reset */
+    position: relative;
+    padding-bottom: 90px; /* Space for bottom nav */
+    box-shadow: none; /* Remove container shadow */
+    overflow-y: auto; /* Internal scroll */
+    scrollbar-width: none; /* Hide scrollbar FF */
+}
+
+.app-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+/* Header Adjustments */
+.app-header {
+    padding: 56px 24px 12px; /* More top padding for Notch */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-color);
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Keep header on top */
+}
+
+/* Bottom Nav Adjustments */
+.bottom-nav {
+    position: absolute; /* Fix to bottom of screen div */
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    padding: 12px 8px 28px; /* Add space for home indicator */
+    border-radius: 0; /* Full width */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--td-green-light);
+    color: var(--td-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.greeting span {
+    display: block;
+    font-size: 12px;
+    color: var(--text-gray);
+}
+
+.greeting h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-dark);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.icon-btn:active {
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* Main Content */
+main {
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Hero Card */
+.hero-card {
+    background-color: var(--white);
+    border-radius: var(--radius-l);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    position: relative;
+}
+
+.spending-gauge-container {
+    position: relative;
+    height: 220px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gauge-center-text {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gauge-center-text .label {
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-bottom: 4px;
+}
+
+.gauge-center-text .amount {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+.gauge-center-text .status {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+}
+
+.gauge-center-text .status.positive {
+    background-color: var(--td-green-light);
+    color: var(--td-green-dark);
+}
+
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+}
+
+.stat-item:last-child {
+    align-items: flex-end;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-gray);
+}
+
+.stat-value {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.text-green {
+    color: var(--td-green);
+}
+
+/* Cards Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.2s;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+.icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.green-bg {
+    background-color: var(--td-green);
+    color: var(--white);
+}
+
+.light-bg {
+    background-color: #f0f0f0;
+    color: var(--text-dark);
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-info .label {
+    font-size: 11px;
+    color: var(--text-gray);
+    margin-bottom: 2px;
+}
+
+.card-info .value {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Transactions */
+.transactions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.see-all {
+    font-size: 12px;
+    color: var(--td-green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--white);
+    padding: 16px;
+    border-radius: var(--radius-m);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.t-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.t-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.t-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.t-info p {
+    font-size: 11px;
+    color: var(--text-gray);
+}
+
+.t-amount {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.t-amount.negative {
+    color: var(--text-dark);
+}
+
+.t-amount.positive {
+    color: var(--td-green);
+}
+
+/* Bottom Nav */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* transform: translateX(-50%); removed */
+    width: 100%;
+    max-width: none;
+    background: var(--white);
+    display: flex;
+    justify-content: space-around;
+    padding: 16px 8px 34px; /* Increased bottom padding for safe area/home indicator */
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: #c4c4c4;
+    font-size: 10px;
+    font-weight: 500;
+    width: 60px;
+}
+
+.nav-item i {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+.nav-item.active {
+    color: var(--td-green);
+}
+
+/* Cash Flow Header */
+.detail-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.back-btn {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Toggle Switch */
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.toggle-switch {
+    position: relative;
+    display: flex;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    padding: 4px;
+    width: 220px;
+    height: 44px;
+}
+
+.toggle-switch input {
+    display: none;
+}
+
+.toggle-switch label {
+    flex: 1;
+    text-align: center;
+    z-index: 1;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.toggle-switch .slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 104px; /* Half - padding */
+    height: 36px;
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+input#weekly:checked ~ .slider {
+    transform: translateX(0);
+}
+
+input#monthly:checked ~ .slider {
+    transform: translateX(108px);
+}
+
+input:checked + label {
+    color: var(--td-green);
+}
+
+/* Chart Card specific */
+.chart-card {
+    background-color: var(--white);
+    border-radius: var(--radius-l);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 340px; /* Ensure space for chart */
+}
+
+.chart-header {
+    display: none; /* Hiding standard legend for cleaner look */
+}
+
+.chart-container {
+    height: 240px;
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+}
+
+.chart-container.small {
+    height: 200px;
+}
+
+.net-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.net-summary .value.positive {
+    color: var(--td-green);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Insight Pill */
+.insight-pill {
+    background: linear-gradient(135deg, var(--td-green-light) 0%, #f1f8e9 100%);
+    border-radius: var(--radius-m);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--td-green-dark);
+}
+
+.insight-pill i {
+    font-size: 18px;
+    background: rgba(255,255,255,0.6);
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.insight-pill p {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* Insights Specific */
+.subtitle {
+    font-size: 13px;
+    color: var(--text-gray);
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.habits-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: #f9f9f9;
+    padding: 12px 8px;
+    border-radius: 12px;
+    flex: 1;
+    margin: 0 4px;
+}
+
+.stat-box .label {
+    font-size: 11px;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-box .value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.stat-box .value small {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-gray);
+}
+
+.merchant-item {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    padding: 12px;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.merchant-item:active, .merchant-item.expanded {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.merchant-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.m-info {
+    flex: 1;
+}
+
+.m-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    align-items: center;
+}
+
+.m-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.m-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.m-count {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--td-green);
+}
+
+.expand-icon {
+    font-size: 12px;
+    color: #ccc;
+    transition: transform 0.3s ease;
+}
+
+.merchant-item.expanded .expand-icon {
+    transform: rotate(180deg);
+}
+
+.progress-bg {
+    width: 100%;
+    height: 6px;
+    background: #f0f0f0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+
+/* Merchant Details (Expanded) */
+.merchant-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.merchant-item.expanded .merchant-details {
+    max-height: 500px; /* Arbitrary limit for animation */
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #f5f5f5;
+}
+
+.m-transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.m-transaction-header {
+    font-size: 11px;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.m-transaction {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.mt-date {
+    color: #666;
+}
+
+.mt-amount {
+    font-weight: 600;
+}
+
+/* Chat Interface */
+.chat-section {
+    background-color: var(--white);
+    border-radius: var(--radius-l);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+}
+
+.chat-messages {
+    flex: 1;
+    min-height: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.message {
+    display: flex;
+    max-width: 80%;
+}
+
+.bot-message {
+    align-self: flex-start;
+}
+
+.user-message {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.message-content {
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.bot-message .message-content {
+    background-color: #f0f0f0;
+    color: var(--text-dark);
+    border-bottom-left-radius: 4px;
+}
+
+.user-message .message-content {
+    background-color: var(--td-green);
+    color: var(--white);
+    border-bottom-right-radius: 4px;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.chat-input-area input {
+    flex: 1;
+    border: none;
+    background: #f9f9f9;
+    padding: 10px 16px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.chat-input-area input::placeholder {
+    color: #aaa;
+}
+
+.chat-input-area input:focus {
+    background: #f0f0f0;
+}

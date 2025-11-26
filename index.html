@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TD MySpend Reimagined</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="iphone-mockup">
+        <div class="btn-side btn-silent"></div>
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-down"></div>
+        <div class="btn-side right btn-power"></div>
+        
+        <div class="iphone-screen">
+            <div class="dynamic-island"></div>
+            
+            <div class="app-container">
+                <header class="app-header">
+                    <div class="header-left">
+                        <div class="avatar">JP</div>
+                        <div class="greeting">
+                            <span>Good Morning,</span>
+                            <h2>Jonathan</h2>
+                        </div>
+                    </div>
+                    <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+                </header>
+
+                <main>
+                    <!-- Hero Section: Spending Status -->
+                    <section class="hero-card">
+                        <div class="hero-content">
+                            <div class="spending-gauge-container">
+                                <canvas id="spendingGauge"></canvas>
+                                <div class="gauge-center-text">
+                                    <span class="label">Spent so far</span>
+                                    <span class="amount">$1,923</span>
+                                    <span class="status positive">On Track</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-footer">
+                            <div class="stat-item">
+                                <span class="stat-label">Typical</span>
+                                <span class="stat-value">$2,024</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Left</span>
+                                <span class="stat-value text-green">$101</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Quick Actions / Cards -->
+                    <section class="cards-grid">
+                        <a href="cashflow.html" class="card action-card" style="text-decoration: none; color: inherit;">
+                            <div class="icon-box green-bg"><i class="fa-solid fa-wallet"></i></div>
+                            <div class="card-info">
+                                <span class="label">Cash Flow</span>
+                                <span class="value">+$450</span>
+                            </div>
+                        </a>
+                        <div class="card action-card">
+                            <div class="icon-box light-bg"><i class="fa-solid fa-chart-pie"></i></div>
+                            <div class="card-info">
+                                <span class="label">Top Category</span>
+                                <span class="value">Food</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Simplified Transaction List -->
+                    <section class="transactions-section">
+                        <div class="section-header">
+                            <h3>Recent Activity</h3>
+                            <a href="#" class="see-all">See All</a>
+                        </div>
+                        <div class="transaction-list">
+                            <!-- Items will be populated by JS -->
+                        </div>
+                    </section>
+                </main>
+
+            </div>
+
+            <nav class="bottom-nav">
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="insights.html" class="nav-item">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Insights</span>
+                </a>
+                <a href="goals.html" class="nav-item">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <span>Goals</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+            
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

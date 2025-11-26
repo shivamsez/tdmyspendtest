@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Flow - TD MySpend</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="iphone-mockup">
+        <div class="btn-side btn-silent"></div>
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-down"></div>
+        <div class="btn-side right btn-power"></div>
+        
+        <div class="iphone-screen">
+            <div class="dynamic-island"></div>
+            
+            <div class="app-container">
+                <header class="app-header detail-header">
+                    <a href="index.html" class="icon-btn back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+                    <h2>Cash Flow</h2>
+                    <button class="icon-btn"><i class="fa-solid fa-calendar"></i></button>
+                </header>
+
+                <main>
+                    <!-- Toggle Switch -->
+                    <div class="toggle-container">
+                        <div class="toggle-switch">
+                            <input type="radio" id="weekly" name="view" checked>
+                            <label for="weekly">Weekly</label>
+                            <input type="radio" id="monthly" name="view">
+                            <label for="monthly">Monthly</label>
+                            <div class="slider"></div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Chart Section -->
+                    <section class="chart-card">
+                        <div class="chart-header">
+                            <div class="legend-item">
+                                <span class="dot income"></span>
+                                <span>In</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="dot expense"></span>
+                                <span>Out</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="cashFlowChart"></canvas>
+                        </div>
+                        <div class="net-summary">
+                            <span class="label">Net Cash Flow</span>
+                            <span class="value positive">+$6,285.11</span>
+                        </div>
+                    </section>
+
+                    <!-- Insight/Message -->
+                    <section class="insight-pill">
+                        <i class="fa-solid fa-trend-up"></i>
+                        <p>You're saving <strong>15% more</strong> than last month.</p>
+                    </section>
+
+                    <!-- Transactions List -->
+                    <section class="transactions-section">
+                        <div class="section-header">
+                            <h3>April Details</h3>
+                        </div>
+                        <div class="transaction-list" id="cf-transactions">
+                            <!-- Populated by JS -->
+                        </div>
+                    </section>
+                </main>
+            </div>
+            
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <script src="cashflow.js"></script>
+</body>
+</html>

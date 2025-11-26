@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights - TD MySpend</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="iphone-mockup">
+        <div class="btn-side btn-silent"></div>
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-down"></div>
+        <div class="btn-side right btn-power"></div>
+        
+        <div class="iphone-screen">
+            <div class="dynamic-island"></div>
+            
+            <div class="app-container">
+                <header class="app-header">
+                    <div class="header-left">
+                        <h2>Insights</h2>
+                    </div>
+                    <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+                </header>
+
+                <main>
+                    <!-- Money Path Section -->
+                    <section class="chart-card">
+                        <div class="section-header">
+                            <h3>Your Money Path</h3>
+                        </div>
+                        <p class="subtitle">Past 3 months & Future 3 months projection</p>
+                        
+                        <div class="chart-container">
+                            <canvas id="moneyPathChart"></canvas>
+                        </div>
+                        
+                        <div class="insight-pill" style="margin-top: 16px;">
+                            <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--td-green);"></i>
+                            <p>Based on your current spending, you're on track to save <strong>$450</strong> more by next month!</p>
+                        </div>
+                    </section>
+
+                    <!-- Spending Habits Section -->
+                    <section class="chart-card">
+                        <div class="section-header">
+                            <h3>Spending Habits</h3>
+                        </div>
+                        <p class="subtitle">Where your money goes</p>
+                        
+                        <div class="chart-container small">
+                            <canvas id="habitsChart"></canvas>
+                        </div>
+                        
+                        <!-- Frequency Stats -->
+                        <div class="habits-stats">
+                            <div class="stat-box">
+                                <span class="label">Freq</span>
+                                <span class="value">4.2 <small>/day</small></span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="label">Top Day</span>
+                                <span class="value">Fri</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="label">Avg txn</span>
+                                <span class="value">$34</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Top Merchants Section -->
+                    <section class="transactions-section">
+                        <div class="section-header">
+                            <h3>Top Merchants</h3>
+                            <span class="label" style="font-size: 12px; color: var(--text-gray);">By Transactions</span>
+                        </div>
+                        <div class="merchant-list" id="topMerchantsList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </section>
+                </main>
+
+            </div>
+
+            <nav class="bottom-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="insights.html" class="nav-item active">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Insights</span>
+                </a>
+                <a href="goals.html" class="nav-item">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <span>Goals</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+            
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <script src="insights.js"></script>
+</body>
+</html>

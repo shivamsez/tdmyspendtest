@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TD MySpend - Goals</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="iphone-mockup">
+        <div class="btn-side btn-silent"></div>
+        <div class="btn-side btn-vol-up"></div>
+        <div class="btn-side btn-vol-down"></div>
+        <div class="btn-side right btn-power"></div>
+        
+        <div class="iphone-screen">
+            <div class="dynamic-island"></div>
+            
+            <div class="app-container">
+                <header class="app-header">
+                    <div class="header-left">
+                        <a href="index.html" class="back-btn" style="color: var(--text-dark); margin-right: 10px;">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                        <div class="greeting">
+                            <h2>Financial Goals</h2>
+                        </div>
+                    </div>
+                </header>
+
+                <main>
+                    <!-- Active Goals Section -->
+                    <section class="transactions-section" id="goalsSection">
+                        <div class="section-header">
+                            <h3>Active Goals</h3>
+                            <button class="icon-btn" style="font-size: 14px; width: 32px; height: 32px; background: #f0f0f0;"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div class="transaction-list" id="goalsList">
+                            <!-- Pre-filled Goals -->
+                            <div class="transaction-item">
+                                <div class="t-left">
+                                    <div class="t-icon" style="background-color: #008a0020; color: #008a00">
+                                        <i class="fa-solid fa-car-side"></i>
+                                    </div>
+                                    <div class="t-info">
+                                        <h4>New Car Fund</h4>
+                                        <p>Target: $5,000</p>
+                                    </div>
+                                </div>
+                                <div class="t-amount positive">
+                                    $1,200
+                                </div>
+                            </div>
+                            <div class="transaction-item">
+                                <div class="t-left">
+                                    <div class="t-icon" style="background-color: #FF980020; color: #FF9800">
+                                        <i class="fa-solid fa-utensils"></i>
+                                    </div>
+                                    <div class="t-info">
+                                        <h4>Dining Out Limit</h4>
+                                        <p>Limit: $300/mo</p>
+                                    </div>
+                                </div>
+                                <div class="t-amount positive">
+                                    On Track
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Chat with Bank Account Section -->
+                    <section class="chat-section" style="min-height: 300px;">
+                        <div class="section-header">
+                            <h3>Chat with your Account</h3>
+                        </div>
+                        <p class="subtitle">Set goals and ask about your finances</p>
+                        
+                        <div class="chat-container">
+                            <div class="chat-messages" id="chatMessages">
+                                <div class="message bot-message">
+                                    <div class="message-content">
+                                        Hello Jonathan! I'm your AI financial assistant. How can I help you set your money goals today?
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-input-area">
+                                <input type="text" id="chatInput" placeholder="Type a message...">
+                                <button id="sendBtn" class="icon-btn green-bg" style="width: 32px; height: 32px; font-size: 14px;">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+
+            </div>
+
+            <nav class="bottom-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="insights.html" class="nav-item">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Insights</span>
+                </a>
+                <a href="goals.html" class="nav-item active">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <span>Goals</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+            
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <script src="goals.js"></script>
+</body>
+</html>
